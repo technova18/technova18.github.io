@@ -37,10 +37,11 @@ color="#111" />
 }
 
 body {
-  background-image: url("img/ckt.jpg") ;
+  background-image: url("img/t.png"), url("img/ckt.jpg");
  background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
+    background-position: center;
+   /* background-size:100% 100%; */
     font-family: 'Audiowide', Helvetica;
   line-height: 25px;
   color:#94FFB8;
@@ -486,4 +487,8 @@ $(".galleryItem").mouseleave(function() {
 
 //# sourceURL=pen.js
 </script>
+<script>
+if( isMobile.any() ) alert('Mobile');
+</script>
+
 </body></html>
