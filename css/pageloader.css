@@ -26,10 +26,10 @@ html file
 }
 .page-loader,
 .page-loader.visible{
-    -webkit-transition: 0.6s;
-    -ms-transition: 0.6s;
-    -moz-transition: 0.6s;
-    transition: 0.6s;
+    -webkit-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -moz-transition: 0.1s;
+    transition: 0.1s;
     opacity: 1;
     visibility: visible;  
 }
@@ -42,7 +42,7 @@ html file
 }
     .page-loader div{
         position: absolute;
-        top:18%;
+        top:25%;
         width: 100%;
         text-align: center;
         color: #fff;
