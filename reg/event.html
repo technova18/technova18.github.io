@@ -209,26 +209,26 @@ body{
   <center><h1 style="font-family:Fixedsys;color:#33CC33;font-size:40px"> Department of Computer Science, Fakir Chand College </h1></center>
 <div id="frm">
 <div class="form-style-10">
-<h1>Event Registration Window<span>We need some basic information, it takes few seconds!</span></h1>
+<h1>Event Registration Window<span>We need some basic information, it takes few seconds!</span><br><center>Please read the guidelines before filling Up the Form.</center></h1>
 <form class="gform pure-form pure-form-stacked" method="POST" data-email="technova18.docs@gmail.com" action="https://script.google.com/macros/s/AKfycbzQKJo4VlhR2UGVWQI7Gyo274gkXEckFivXOFSB4eO3OA3Ad5Z8/exec">
     
     <center><b style="color:white;font-family:'Lucida Handwriting';font-size:20px">Personal Details</b></center><br>
     <div class="section"><span>1</span>Participant Name</div>
     <div class="inner-wrap">
         <label>Name of 1st Participant<input type="text" required="true" placeholder="Enter Full Name" oninput="this.className = ''" name="fname" id="fname"></label>
-        <label>Name of 2nd Participant<input type="text" placeholder="Enter Full Name" oninput="this.className = ''" name="sname"></label>
+        <label>Name of 2nd Participant<input type="text" placeholder="Enter Full Name" oninput="this.className = ''" name="sname" id="sname"></label>
     </div>
 
     <div class="section"><span>2</span>Email Id</div>
     <div class="inner-wrap">
-        <label>Email Of 1st Participant<input type="email" required="true" placeholder="Enter Email ID" oninput="this.className = ''" name="fmail"></label>
-        <label>Email Of 2nd Participant<input type="email" placeholder="Enter Email ID" oninput="this.className = ''" name="smail"></label>
+        <label>Email Of 1st Participant<input type="email" required="true" placeholder="Enter Email ID" oninput="this.className = ''" name="fmail" id="fmail"></label>
+        <label>Email Of 2nd Participant<input type="email" placeholder="Enter Email ID" oninput="this.className = ''" name="smail" id="smail"></label>
     </div>
 
     <div class="section"><span>3</span>Phone No.</div>
         <div class="inner-wrap">
-        <label>Phone No. Of 1st Participant<input type="number" required="true" placeholder="Enter Phone No." oninput="this.className = ''" name="fph"></label>
-        <label>Phone No. Of 2nd Participant<input type="number" placeholder="Enter Phone No." oninput="this.className = ''" name="sph"></label>
+        <label>Phone No. Of 1st Participant<input type="number" required="true" placeholder="Enter Phone No." oninput="this.className = ''" name="fph" id="fph"></label>
+        <label>Phone No. Of 2nd Participant<input type="number" placeholder="Enter Phone No." oninput="this.className = ''" name="sph" id="sph"></label>
     </div>
     
     
@@ -315,12 +315,12 @@ body{
 
     <div class="section"><span>3</span>College Name</div>
         <div class="inner-wrap">
-        <label>College Name 1st Participant<input type="text" required="true" placeholder="Enter College Name" oninput="this.className = ''" name="fclg"></label>
-        <label>College Name 2nd Participant<input type="text" placeholder="Enter College Name" oninput="this.className = ''" name="sclg"></label>
+        <label>College Name 1st Participant<input type="text" required="true" placeholder="Enter College Name" oninput="this.className = ''" name="fclg" id="fclg"></label>
+        <label>College Name 2nd Participant<input type="text" placeholder="Enter College Name" oninput="this.className = ''" name="sclg" id="sclg"></label>
     </div>
 
 
-	<!-- Partitipation Detaails-->
+	<!-- Partitipation Details-->
 	<center><b style="color:white;font-family:'Lucida Handwriting';font-size:20px">Participation Details</b></center><br>
 	<div class="section"><span>1</span>Event to Participate (Group Participation)</div>
         <div class="inner-wrap">
@@ -330,22 +330,22 @@ body{
         <p>
     <select name="fevent" required="true" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
     <option value="NULL" selected disabled>-- Select any One --</option>
-    <option value="Web Design">Design the Globe</option>
-    <option value="Digikit">Digikit</option>
+    <option value="Web Design">Design the Globe (Web Design Contest)</option>
+    <option value="Digikit">Digikit (Digital Design Contest)</option>
   	</select>
     </p>
     <p>Event 2 (Check to participate):</p>
-	<label class="chck" style="font-size:18px">We want to join <strong>Code-Battle</strong><input type="checkbox" name="sevent" value="Code-Battle"><span class="checkmark"></span></label>
-	<label class="chck" style="font-size:18px">We want to join <strong>Mindbend</strong><input type="checkbox" name="tevent" value="Mindbend"><span class="checkmark"></span></label>
+	<label class="chck" style="font-size:18px">We want to join <strong>Code-Battle (Coding Contest)</strong><input type="checkbox" name="sevent" value="Code-Battle" id="code"><span class="checkmark"></span></label>
+	<label class="chck" style="font-size:18px">We want to join <strong>Mindbend (Technical Quiz Contest)</strong><input type="checkbox" name="tevent" value="Mindbend" id="mindbend"><span class="checkmark"></span></label>
 	</label>
     </div>
 	<div class="section"><span>2</span>Event to Participate (Individual Participation):</div>
         <div class="inner-wrap">
         <label>
         <h style="font-size:18px;font-family:Verdana">For 1st participant:</h>
-        <label class="chck" style="font-size:18px">I want to Join Battle of Word<input type="checkbox" name="debate" value="fp"><span class="checkmark" onclick="chk()"></span></label>
+        <label class="chck" style="font-size:18px">I want to Join Battle of Word (Debate Contest)<input type="checkbox" name="debate" value="fp"><span class="checkmark" onclick="chk()"></span></label>
 		<h style="font-size:18px;font-family:Verdana">For 2nd participant:</h>
-		<label class="chck" style="font-size:18px">I want to Join Battle of Word<input type="checkbox" name="debate" value="sp"><span class="checkmark" onclick="chk()"></span></label>
+		<label class="chck" style="font-size:18px">I want to Join Battle of Word (Debate Contest)<input type="checkbox" name="debate" value="sp"><span class="checkmark" onclick="chk()"></span></label>
 		</label>
         </div>
 
@@ -481,9 +481,104 @@ if(document.getElementById("syrsmchk").value==="SM")
 
 }
 function abc()
+{	
+if(document.getElementById("sname").value=="")
 {
-	document.getElementById("frm").style.display="none";
-	document.getElementById("msg").style.display="";
+	if(document.getElementById("fname").value!="")
+	{
+		if(document.getElementById("fmail").value!="")
+		{
+			if(document.getElementById("fph").value!="")
+			{
+				if(document.getElementById("fclg").value!="")
+				{
+					document.getElementById("frm").style.display="none";
+					document.getElementById("msg").style.display="";
+				}
+				else
+				{
+					alert("Enter College Name of the First Participant");
+				}
+			}
+			else
+			{
+				alert("Enter Phone Number of the First Participant");
+			}
+		}
+		else
+		{
+			alert("Enter Email ID of the First Participant");
+		}
+	}
+	else
+	{
+		alert("Enter Full Name of the First Participant");
+	}
+}
+	
+	
+else if(document.getElementById("sname").value!="")
+{
+	if(document.getElementById("fname").value!="")
+	{
+		if(document.getElementById("fmail").value!="")
+		{
+			if(document.getElementById("fph").value!="")
+			{
+				if(document.getElementById("fclg").value!="")
+				{
+					if(document.getElementById("sname").value!="")
+					{
+						if(document.getElementById("smail").value!="")
+						{
+							if(document.getElementById("sph").value!="")
+							{
+								if(document.getElementById("sclg").value!="")
+								{
+									document.getElementById("frm").style.display="none";
+									document.getElementById("msg").style.display="";
+								}
+								else
+								{
+									alert("Enter College Name of the 2nd Participant");
+								}
+							}
+							else
+							{
+								alert("Enter Phone Number of the 2nd Participant");
+							}
+						}
+						else
+						{
+							alert("Enter Email ID of the 2nd Participant");
+						}
+					}
+					else
+					{
+						alert("Enter Full Name of the 2nd Participant");
+					}
+					
+				}
+				else
+				{
+					alert("Enter College Name of the First Participant");
+				}
+			}
+			else
+			{
+				alert("Enter Phone Number of the First Participant");
+			}
+		}
+		else
+		{
+			alert("Enter Email ID of the First Participant");
+		}
+	}
+	else
+	{
+		alert("Enter Full Name of the First Participant");
+	}
+}	
 
 }
 
