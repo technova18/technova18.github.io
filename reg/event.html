@@ -202,14 +202,85 @@ body{
 }
 
 </style>
+<style>
+#modal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+}
+.modalconent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 80%;
+    padding: 20px;
+}
 
 
-<body>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+</style>
+
+<body onload="amvn()">
+
+<div id="modal">
+    <div class="modalconent">
+         <h1></h1>
+
+        <p><center><b><i>Guidelines</i></b></center></p>
+		<p>
+		<b>Participation Rules: </b>Any two students can make a group and register themselves in the same form for the technical events - Design the Globe (Web Design Contest),
+		 Digikit (Digital Circuits Design Contest), Code-Battle (Coding Contest), Mindbend (Technical Quiz Contest). From the group prepared, any one or both can join the event - 
+		 Battle of Word (Debate Contest) individually. 
+		</p> 
+		<p>
+		<b>
+		Contest Details: 
+		</b>
+		If number of students attended for any technical event excluding Battle of Word (Debate Contest), became more than resources (Computer) available, then prelims will be taken.
+		After the result of  prelims selected candidates will contest for the Final Round. 
+		Any one can participate at the Battle of Word (Debate Contest) at any time within the scheduled time-period of the same event. 
+		</p>
+		<p>
+		<b>Timing Details : </b>Our Technical Events - Design the Globe (Web Design Contest) and Digikit (Digital Circuit Design) will occur in parallel.
+		After starting of Final Contest, Students who discarded at the time of Prelims, could join Battle of Word (Debate Contest). After Completion of first 2 events,
+		 Code-battle (Coding Contest) will start. Here also, after starting of Final, discarded students could join the Battle of Word (Debate Contest). <i>
+		 Although any participant can join the event - Battle of Word (Debate Contest), without joining in any other technical events.</i>
+		</p>
+		<p>
+		<b>Seminar Participation : </b>Any Participant registered for technical events, already counted as a seminar participant.
+		So do not fill up the seminar registration form if you are filling up the technical event registration form.
+		</p>
+		<center>
+        <button class="button button2" id="button">Okay</button>
+		</center>
+    </div>
+</div>
+
 <center><h1 style="font-family:'Comic Sans MS';color:#FF6699;font-size:30px"> Technova18 : Annual Technical Fest</h1></center>
   <center><h1 style="font-family:Fixedsys;color:#33CC33;font-size:40px"> Department of Computer Science, Fakir Chand College </h1></center>
 <div id="frm">
 <div class="form-style-10">
-<h1>Event Registration Window<span>We need some basic information, it takes few seconds!</span><br><center>Please read the guidelines before filling Up the Form.</center></h1>
+<h1>Event Registration Window<span>We need some basic information, it takes few seconds!</span><br><center> <a href="#" onclick="amvvn()">Please read the guidelines before filling Up the Form.</a></center></h1>
+
 <form class="gform pure-form pure-form-stacked" method="POST" data-email="technova18.docs@gmail.com" action="https://script.google.com/macros/s/AKfycbzQKJo4VlhR2UGVWQI7Gyo274gkXEckFivXOFSB4eO3OA3Ad5Z8/exec">
     
     <center><b style="color:white;font-family:'Lucida Handwriting';font-size:20px">Personal Details</b></center><br>
@@ -515,8 +586,7 @@ if(document.getElementById("sname").value=="")
 		alert("Enter Full Name of the First Participant");
 	}
 }
-	
-	
+
 else if(document.getElementById("sname").value!="")
 {
 	if(document.getElementById("fname").value!="")
@@ -581,6 +651,17 @@ else if(document.getElementById("sname").value!="")
 }	
 
 }
+
+function amvn() {
+	document.getElementById('button').onclick = function amvn() {
+	document.getElementById('modal').style.display = "none"
+    };
+};
+function amvvn() {
+	{
+	document.getElementById('modal').style.display = ""
+    };
+};
 
 </script>
 
