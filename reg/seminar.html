@@ -202,14 +202,78 @@ body{
 }
 
 </style>
+<style>
+#modal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+	
+}
+.modalconent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 70%;
+	height: 49%;
+    padding: 20px;
+	overflow: scroll;
+}
 
 
-<body>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+</style>
+
+<body onload="amvn()">
+
+<div id="modal">
+    <div class="modalconent">
+         <h1></h1>
+
+        <p><center><b><i>Please Read it Carefully</i></b></center></p>
+		<p>
+		<b>Registration : </b>If you have done registration in event registration window or you are ready to join any technical event, then you need not to register here, just register yourself in event registration form.
+			If you want to join only in special lecture then, fill it up.
+		</p> 
+		<p>
+		<b>
+		Timings : 
+		</b>
+		After Completion of Technical Events, we have a lunch break, then Mindbend (technology Quiz Contest) will start and after quiz contest,
+		the special lecture will be given by Dr. Mridul Nandi, ISI Kolkata on the topic "Cryptography".
+		</p>
+		<p>
+		<b>Food Service : </b>If you fail to reach the event venue within 1 hour from the starting of Lunch Time, we will replace your lunch with Tiffin. 
+		</p>
+		<center>
+        <button class="button button2" id="button">Okay</button>
+		</center>
+    </div>
+</div>
 <center><h1 style="font-family:'Comic Sans MS';color:#FF6699;font-size:30px"> Technova18 : Annual Technical Fest</h1></center>
   <center><h1 style="font-family:Fixedsys;color:#33CC33;font-size:40px"> Department of Computer Science, Fakir Chand College </h1></center>
 <div id="frm">
 <div class="form-style-10">
-<h1>Seminar Registration Window<span>We need some basic information, it takes few seconds!</span></h1>
+<h1>Seminar Registration Window<span>We need some basic information, it takes few seconds!</span><br><center> 
+<a href="#" onclick="amvvn()">Please read the guidelines before filling Up the Form.</a></center></h1>
 <form class="gform pure-form pure-form-stacked" method="POST" data-email="technova18.docs@gmail.com" action="https://script.google.com/macros/s/AKfycbwOoIKvtjCW4WHL7F5GHMQr6Yu6FBlKckrXnmJlKg/exec">
     
     <center><b style="color:white;font-family:'Lucida Handwriting';font-size:20px">Personal Details</b></center><br>
@@ -220,17 +284,17 @@ body{
 
     <div class="section"><span>2</span>Email Id</div>
     <div class="inner-wrap">
-        <label>Email Of Student:<input type="email" required="true" placeholder="Enter Email ID" name="email"></label>
+        <label>Email Of Student:<input type="email" required="true" placeholder="Enter Email ID" name="email" id="fmail"></label>
             </div>
 			
 	<div class="section"><span>3</span>Institution Name</div>
     <div class="inner-wrap">
-        <label>Name of your Institution:<input type="text" required="true" placeholder="Enter Institution Name" name="institution"></label>
+        <label>Name of your Institution:<input type="text" required="true" placeholder="Enter Institution Name" name="institution" id="fclg"></label>
             </div>
 
     <div class="section"><span>4</span>Phone No.</div>
         <div class="inner-wrap">
-        <label>Phone No. Of Student:<input type="number" required="true" placeholder="Enter Phone Number" name="ph"></label>
+        <label>Phone No. Of Student:<input type="number" required="true" placeholder="Enter Phone Number" name="ph" id="fph"></label>
             </div>
     <div class="section"><span>5</span>How much person will you bring with you?</div>
         <div class="inner-wrap">
@@ -347,10 +411,48 @@ document.getElementById("third").style.display= "";
 }
 function abc()
 {
-	document.getElementById("frm").style.display="none";
-	document.getElementById("msg").style.display="";
-
+	if(document.getElementById("fname").value!="")
+	{
+		if(document.getElementById("fmail").value!="")
+		{
+			if(document.getElementById("fclg").value!="")
+			{
+				if(document.getElementById("fph").value!="")
+				{
+					document.getElementById("frm").style.display="none";
+					document.getElementById("msg").style.display="";
+				}
+				else
+				{
+					alert("Enter your Phone Number");
+				}
+			}
+			else
+			{
+				alert("Enter your Institution Name");
+			}
+		}
+		else
+		{
+			alert("Enter your Email ID");
+		}
+	}
+	else
+	{
+		alert("Enter your Full Name");
+	}
 }
+
+function amvn() {
+	document.getElementById('button').onclick = function amvn() {
+	document.getElementById('modal').style.display = "none"
+    };
+};
+function amvvn() {
+	{
+	document.getElementById('modal').style.display = ""
+    };
+};
 
 </script>
 
