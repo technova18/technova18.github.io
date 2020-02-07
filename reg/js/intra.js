@@ -43,14 +43,13 @@ var	fdept = getInputVal('fdept');
 var	sdept = getInputVal('sdept');
 var	fevent = getInputVal('fevent');
 var	sevent = getInputVal('sevent');
-var	tfevent = getInputVal('tfevent');
-var	tsevent = getInputVal('tsevent');
-var	mindbend = getInputVal('mindbend');
-var	ffood = getInputVal('ffood');
-var	sfood = getInputVal('sfood');
+var	tevent = getInputVal('tevent');
+var ffevent = getInputVal('ffevent');
+var	fsevent = getInputVal('fsevent');
 var appid = getInputVal('appidsetval');
+var prtype = 'Intra';
  // Save message
-  saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tfevent,tsevent,mindbend,ffood,sfood,appid);
+  saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tevent,ffevent,fsevent,appid,prtype);
 
 
   document.getElementById("contactForm").style.display = 'none';
@@ -65,11 +64,8 @@ function getInputVal(id){
 }
 
 // Save message to firebase   
-function saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tfevent,tsevent,mindbend,ffood,sfood,appid){
-  /*
-  var newMessageRef = messagesRef.push();
-  MessageRef.set({
-  */
+function saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tevent,ffevent,fsevent,appid,prtype){
+
   firebase.database().ref('users/' + appid).set({
 fname:fname,
 sname:sname,
@@ -87,12 +83,11 @@ fdept:fdept,
 sdept:sdept,
 fevent:fevent,
 sevent:sevent,
-tfevent:tfevent,
-tsevent:tsevent,
-mindbend:mindbend,
-ffood:ffood,
-sfood:sfood,
-appid:appid
+tevent:tevent,
+ffevent:ffevent,
+fsevent:fsevent,
+appid:appid,
+prtype:prtype
   });
 }
 
@@ -126,17 +121,67 @@ function chkn() {
  		
  	}
 
-function mnd()
+function fevt()
  {
-  if(document.getElementById("mindbend").checked===true)
+  if(document.getElementById("fevent").checked===true)
   {
-    document.getElementById("mindbend").value="Mindbend";
+    document.getElementById("fevent").value="Code-Arena";
   }
   else
   {
-    document.getElementById("mindbend").value="NA";
+    document.getElementById("fevent").value="NA";
   }
  }
+
+ function sevt()
+ {
+  if(document.getElementById("sevent").checked===true)
+  {
+    document.getElementById("sevent").value="Digikit";
+  }
+  else
+  {
+    document.getElementById("sevent").value="NA";
+  }
+ }
+
+ function tevt()
+ {
+  if(document.getElementById("tevent").checked===true)
+  {
+    document.getElementById("tevent").value="Draw The Web";
+  }
+  else
+  {
+    document.getElementById("tevent").value="NA";
+  }
+ }
+
+ function ffevt()
+ {
+  if(document.getElementById("ffevent").checked===true)
+  {
+    document.getElementById("ffevent").value="Battle of Word";
+  }
+  else
+  {
+    document.getElementById("ffevent").value="NA";
+  }
+ }
+
+ function fsevt()
+ {
+  if(document.getElementById("fsevent").checked===true)
+  {
+    document.getElementById("fsevent").value="Battle of Word";
+  }
+  else
+  {
+    document.getElementById("fsevent").value="NA";
+  }
+ }
+
+
 
  	function toggleCheckbox(element)
  {	
@@ -168,10 +213,6 @@ function mnd()
    element.checked = !element.checked;
    swal("Oops..","Enter 1st Participant's Department name","error");
    document.getElementById("fdept").focus();}
-	 else if(document.getElementById("ffood").value==="" || document.getElementById("ffood").value==="NA"){
-   element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Food Service","error");
-   document.getElementById("ffood").focus();}
    	   	
    	else{
    element.checked = element.checked;
