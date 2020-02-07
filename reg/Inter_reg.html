@@ -1,0 +1,628 @@
+﻿<!DOCTYPE HTML>
+<html>
+<title>TECHNOVA || Annual Tech Fest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/jpg" href="img/tr.png">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link href='css/font.css' rel='stylesheet' type='text/css'>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>	
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+<style type="text/css">
+	
+body{
+	width:100%;	
+	margin: auto;
+	background-image: url("img/tr.png"), url("img/ckt.png") ;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+    background-size: cover;
+}
+.form-style-10{
+	max-width:900px;
+	padding:30px;
+	margin:40px auto;
+	background:rgba(32, 147, 249, 0.5);
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: rgba(32, 194, 249, 0.4);
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.form-style-10 h1{
+	background: #8e9176;
+	padding: 20px 30px 15px 30px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 35px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+	display: block;
+	margin-top: 2px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+	display: block;
+	font: 13px Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	margin-bottom: 15px;
+}
+.form-style-10 input[type=text], .form-style-10 input[type=date], .form-style-10 input[type=datetime], .form-style-10 input[type=email], .form-style-10 input[type=number], .form-style-10 input[type=search], .form-style-10 input[type=time], .form-style-10 input[type=url], .form-style-10 input[type=password], .form-style-10 textarea, .form-style-10 select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+	font: normal 20px 'Bitter', serif;
+	color:#FFFFFF;
+	margin-bottom: 5px;
+}
+.form-style-10 .section span {
+	background: #2A88AD;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 14px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+.form-style-10 input[type=button], .form-style-10 input[type=submit]{
+	background: #2A88AD;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+	font-size: 15px;
+}
+.form-style-10 input[type=button]:hover, .form-style-10 input[type=submit]:hover{
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+	float: right;
+	width: 250px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	margin-top: 10px;
+	text-align: right;
+}
+/*-----------------------------------*/
+.list-type5{
+width:410px;
+margin:0 auto;
+}
+.list-type5 ol {
+list-style-type: none;
+list-style-type: decimal !ie; /*IE 7- hack*/
+margin: 0;
+margin-left: 1em;
+padding: 0;
+counter-reset: li-counter;
+}
+.list-type5 ol li{
+position: relative;
+margin-bottom: 1.5em;
+padding: 0.5em;
+background-color: #F0D756;
+padding-left: 58px;
+}
+
+.list-type5 a{
+text-decoration:none;
+color:black;
+font-size:15px;
+font-family: 'Raleway', sans-serif;
+}
+
+.list-type5 li:hover{
+box-shadow:inset -1em 0 #6CD6CC;
+-webkit-transition: box-shadow 0.5s; /* For Safari 3.1 to 6.0 */
+transition: box-shadow 0.5s;
+}
+
+.list-type5 ol li:before {
+position: absolute;
+top: -0.3em;
+left: -0.5em;
+width: 1.8em;
+height: 1.2em;
+font-size: 2em;
+line-height: 1.2;
+font-weight: bold;
+text-align: center;
+color: white;
+background-color: #6CD6CC;
+transform: rotate(-20deg);
+-ms-transform: rotate(-20deg);
+-webkit-transform: rotate(-20deg);
+z-index: 99;
+overflow: hidden;
+content: counter(li-counter);
+counter-increment: li-counter;
+}
+
+h2 {
+	margin: 1em 0 0.5em 0;
+	font-weight: normal;
+	position: relative;
+	text-shadow: 0 -1px rgba(0,0,0,0.6);
+	font-size: 28px;
+	line-height: 40px;
+	background: #355681;
+	background: rgba(53,86,129, 0.8);
+	border: 1px solid #fff;
+	padding: 5px 15px;
+	color: white;
+	border-radius: 0 10px 0 10px;
+	box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+	font-family: 'Muli', sans-serif;
+	}
+</style>
+<style>
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+<style>
+.button {
+    background-color:#6699FF; /* Green */
+    border: none;
+    font-family:"Times New Roman", Times, serif;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    }
+.button:hover {background-color:#3333CC;}
+
+.button:active {
+  background-color:#333399;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+</style>
+<style type="text/css">
+  .foooter {
+    background-image: linear-gradient(to right, rgba(245, 211, 59, 0.6), rgba(146, 201, 224, 0.6));
+  border: 2px solid #467813;
+  border-radius: 5px;
+  color: #703bf5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 15px 20px 15px 50px;
+}
+</style>
+<body onload="appidset()">
+<center><h1 style="border-radius: 20px; width:95%; font-family: 'Libre Baskerville', serif; color:#FFFFFF; font-size:35px; background-color: rgba(102, 153, 255, 0.5); background-image: linear-gradient(to right, rgba(128,128,128,0.5), rgba(102,153,255,0.5));">Technova : : Annual Tech Fest </h1></center>
+<div>
+<div style="display:block" class="form-style-10">
+
+
+<h1>
+<center>
+<!--
+<img src="img/dhola.jpg" height="60px" width="60px" />
+-->
+Inter College Registration Window
+<!--
+<img src="img/dhola.jpg" height="60px" width="60px" />
+-->
+<br>
+</center>
+</h1>
+<div id="instructions">
+<fieldset style="background-color:rgba(120, 117, 130,0.8); border: rgba(25,58,224,0.8) 3px solid;">
+  <legend align="center"><font size="5px"><b>Before Proceed Please Read these instructions carefully</b></font></legend>
+  <br>
+
+<div class="list-type5">
+<ol>
+<li><a>Fillup the Registration form carefully. Mandatory Fields are marked with a 
+  <img src="img/asterisk.png" alt="mandatory" height="15" width="15">.</a></li>
+<li><a>This Registration Window is for Inter College Students Only (i.e. Students from Different Colleges excluding Fakir Chand College). </a></li>
+<li><a>After Successful submission carefully note down the Application ID and on the next window, click on "Login" and take a screenshot of the page containing <b>QR Code</b> required for verification. You can get this code at again, by a successful login with Email ID (1st Participant's Email ID) and Application ID.</a></li>
+<li><a><b>Students applying for Inter College Technical Contests, should verify themselves at Event Venue on the Event Day (25th February, 2020 : Tuesday).</b></a></li>
+</ol>
+</div>
+  <br>
+ </fieldset>
+<br>
+<h2><center>Enter Your Details</center></h2>
+</div>
+<form class="pure-form pure-form-stacked" id="contactForm">  
+ 	<br>
+    <center><b style="color:black;font-family:'Times New Roman';font-size:35px">Basic Information</b></center>
+    <br>
+    
+    <!-- Name -->
+<div class="section"><span>1</span>1st Participant's Name*</div>
+    <div class="inner-wrap">
+	<input type="text" name="fname" id="fname" required="true" placeholder="Enter Student's Full Name">
+    </div>
+<div class="section"><span>2</span>2nd Participant's Name</div>
+    <div class="inner-wrap">
+  <input type="text" name="sname" id="sname" placeholder="Enter Student's Full Name">
+    </div>
+<hr>
+    <!-- Email ID -->
+<div class="section"><span>3</span>1st Participant's Email ID*</div>
+    <div class="inner-wrap">
+  <input type="email" name="fmail" id="fmail" required="true" placeholder="Enter Student's Full Name">
+    </div>
+<div class="section"><span>4</span>2nd Participant's Email ID</div>
+    <div class="inner-wrap">
+  <input type="email" name="smail" id="smail" placeholder="Enter Student's Full Name">
+    </div>
+<hr>
+  <!-- Phone No. -->
+<div class="section"><span>5</span>1st Participant's Phone No.*</div>
+    <div class="inner-wrap">
+    <input type="number" name="fphone" id="fphone" required="true" value="" maxlength="10" placeholder="Enter Contact No. / Phone No." onchange="contacta()" >
+    </div>
+<div class="section"><span>6</span>2nd Participant's Phone No.</div>
+    <div class="inner-wrap">
+    <input type="number" name="sphone" id="sphone" value="" maxlength="10" placeholder="Enter Contact No. / Phone No." onchange="contactb()" >
+    </div>
+<hr>
+
+<br>
+    <center><b style="color:black;font-family:'Times New Roman';font-size:35px">Educational Information</b></center>
+    <br>
+
+  <!-- Stream -->
+<div class="section"><span>1</span>1st Participant's Stream*</div>
+    <div class="inner-wrap">
+    <label><select name="fstrm" id="fstrm" required="true" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" disabled="disabled" selected>-- Select any One --</option>
+    <option value="BSC">B.SC</option>
+    <option value="MSC">M.SC</option>
+    <option value="BCA">BCA</option>
+    <option value="MCA">MCA</option>
+    <option value="B.Tech">B.Tech</option>
+    <option value="M.Tech">M.Tech</option>
+    <option value="Others">Others</option>
+    </select>
+	</label>
+    </div>
+
+    <div class="section"><span>2</span>2nd Participant's Stream</div>
+    <div class="inner-wrap">
+    <label><select name="sstrm" id="sstrm" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" disabled="disabled" selected>-- Select any One --</option>
+    <option value="BSC">B.SC</option>
+    <option value="MSC">M.SC</option>
+    <option value="BCA">BCA</option>
+    <option value="MCA">MCA</option>
+    <option value="B.Tech">B.Tech</option>
+    <option value="M.Tech">M.Tech</option>
+    <option value="Others">Others</option>
+    </select>
+  </label>
+    </div>
+<hr>
+
+<!-- Year / Semester -->
+
+<div class="section"><span>3</span>1st Participants's Year / Semester*</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="fyr" id="fyr" required="true" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" disabled="disabled" selected>-- Select any One --</option>
+    <option value="1st SEM">1st SEM</option>
+    <option value="2nd SEM">2nd SEM</option>
+    <option value="3rd SEM">3rd SEM</option>
+    <option value="4th SEM">4th SEM</option>
+    <option value="5th SEM">5th SEM</option>
+    <option value="6th SEM">6th SEM</option>
+    <option value="7th SEM">7th SEM</option>
+    <option value="8th SEM">8th SEM</option>
+    <option value="1st Year">1st Year</option>
+    <option value="2nd Year">2nd Year</option>
+    <option value="3rd Year">3rd Year</option>
+    <option value="4th Year">4th Year</option>
+    <option value="Others">Others</option>
+      	</select>
+		</label>
+        </div>
+<div class="section"><span>4</span>2nd Participants's Year / Semester</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="syr" id="syr" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" disabled="disabled" selected>-- Select any One --</option>
+    <option value="1st SEM">1st SEM</option>
+    <option value="2nd SEM">2nd SEM</option>
+    <option value="3rd SEM">3rd SEM</option>
+    <option value="4th SEM">4th SEM</option>
+    <option value="5th SEM">5th SEM</option>
+    <option value="6th SEM">6th SEM</option>
+    <option value="7th SEM">7th SEM</option>
+    <option value="8th SEM">8th SEM</option>
+    <option value="1st Year">1st Year</option>
+    <option value="2nd Year">2nd Year</option>
+    <option value="3rd Year">3rd Year</option>
+    <option value="4th Year">4th Year</option>
+    <option value="Others">Others</option>
+        </select>
+    </label>
+        </div>
+<hr>
+<!-- College Name -->
+
+<div class="section"><span>5</span>1st Participant's College Name*</div>
+    <div class="inner-wrap">
+  <input type="text" name="fclg" id="fclg" required="true" placeholder="Enter College Name">
+    </div>
+<div class="section"><span>6</span>2nd Participant's College Name</div>
+    <div class="inner-wrap">
+  <input type="text" name="sclg" id="sclg" placeholder="Enter College Name">
+    </div>
+<hr>
+
+<!-- Department Name -->
+
+<div class="section"><span>7</span>1st Participant's Department Name*</div>
+    <div class="inner-wrap">
+  <input type="text" name="fdept" id="fdept" required="true" placeholder="Enter College Name">
+    </div>
+<div class="section"><span>8</span>2nd Participant's Department Name</div>
+    <div class="inner-wrap">
+  <input type="text" name="sdept" id="sdept" placeholder="Enter College Name">
+    </div>
+<hr>
+
+
+    <!-- Event Details -->
+    <br>
+    <center><b style="color:black;font-family:'Times New Roman';font-size:35px">Event Participation Details</b></center>
+    <br>
+
+<div class="section"><span>1</span>Group Participation (Select Events for your Group)*</div><br>
+<div class="section"><span>A</span>Event 1</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="fevent" id="fevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="Digikit-Arduino">Digikit (Expertise Arduino)</option>
+    <option value="Digikit-IC">Digikit (Mastering ICs)</option>
+    <option value="Webdesign">Draw the Web</option>
+      	</select>
+		</label>
+        </div>
+
+<div class="section"><span>B</span>Event 2</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="sevent" id="sevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="Code-Arena">Code-Arena</option>
+    <option value="Data-Pirate">Data Pirate</option>
+        </select>
+    </label>
+        </div>
+
+<div class="section"><span>C</span>Event 3</div>
+  <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
+    <b>We want to participate in "Mindbend : Technical Quiz Contest"</b>
+  <input type="checkbox" id="mindbend" name="mindbend" value="NA" onchange="mnd()">
+  <span class="checkmark"></span>
+  </label>
+
+<br><hr><br>
+
+<div class="section"><span>2</span>Individual Participation</div><br>
+<div class="section"><span>A</span>For Participant 1</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="tfevent" id="tfevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="Syntactic and Bug-Hunter">Syntactic & Bug-Hunter</option>
+    <option value="Syntactic">Syntactic</option>
+    <option value="Bug-Hunter">Bug-Hunter</option>
+    <option value="Battle of Words">Battle of Words</option>
+        </select>
+    </label>
+        </div>
+
+<div class="section"><span>B</span>For Participant 2</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="tsevent" id="tsevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="Syntactic and Bug-Hunter">Syntactic & Bug-Hunter</option>
+    <option value="Syntactic">Syntactic</option>
+    <option value="Bug-Hunter">Bug-Hunter</option>
+    <option value="Battle of Words">Battle of Words</option>
+        </select>
+    </label>
+        </div>
+<hr>
+
+
+<br>
+    <center><b style="color:black;font-family:'Times New Roman';font-size:35px">Preferred Food-service</b></center>
+    <br>
+<div class="section"><span>1</span>For Participant 1</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="ffood" id="ffood" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="VEG">VEG</option>
+    <option value="NON-VEG">NON-VEG</option>
+    <option value="TIFFIN">JUST A TIFFIN</option>
+    <option value="NO NEED">DO NOT NEED</option>
+        </select>
+    </label>
+        </div>
+
+<div class="section"><span>2</span>For Participant 2</div>
+        <div class="inner-wrap">
+        <label>
+        <select name="sfood" id="sfood" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
+    <option value="NA" selected disabled>-- Select any One --</option>
+    <option value="VEG">VEG</option>
+    <option value="NON-VEG">NON-VEG</option>
+    <option value="TIFFIN">JUST A TIFFIN</option>
+    <option value="NO NEED">DO NOT NEED</option>
+        </select>
+    </label>
+        </div>
+<hr>
+  
+       <br>
+	
+	<label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:black">
+    <b>I have read and checked all details provided here and from my best knowing all is true.</b>
+  <input type="checkbox" id="submitcheck" name="submitcheck" value="NA" onchange="toggleCheckbox(this)">
+  <span class="checkmark"></span>
+	</label>
+
+    <center><div class="button-section">
+     <button type="submit" class="button" id="submitbtn" disabled="disabled">Submit</button>
+         </div></center>
+</form>
+<div class="button" id="thankyou" style="display:none;font-size:25px">
+		<p type="text" name="appidsetval" id="appidsetval" value="" placeholder="Your Application ID" style="display:none">
+      <center>
+		<p><strong>You have successfully registered.</strong>
+      <br>Write Down your Application ID. Now you can Log In with your(1st Participant's email) Email ID as Login Id and Application ID as Password.</p>
+		<p id="idset">Your Application ID is here.</p> 
+    </center>
+    <input type="button" name="printbtn" value="LogIn" onclick="previewall()">
+</div>
+    
+</div>
+
+</div>
+
+  <center><p class="foooter">All Rights Reserved ©Technova. | Powered by <a href="http://www.technovafcc.in/" target="_blank">Technova || Department of Computer Science</a></p></center>
+
+
+<link class="jsbin" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script src="js/intr.js"></script>
+
+
+<script type="text/javascript">
+  
+ function previewall(){
+ swal("TECHNOVA","Your Submission is successful. Please Note down the Application ID for Further use","success");
+ chkn();
+ }
+</script>
+</body>
+</html>
