@@ -1,0 +1,240 @@
+<html>
+<head>
+	<title>
+		Technova || Annual Tech Fest
+	</title>
+<link rel="icon" href="ss/login/images/logo.png" sizes="32x32" />
+	<link rel="icon" href="ss/login/images/logo.png" sizes="192x192" />
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style type="text/css">
+.list-type1{
+width:400px;
+margin:0 auto;
+}
+
+.list-type1 ol{
+counter-reset: li;
+list-style: none;
+*list-style: decimal;
+font-size: 15px;
+font-family: 'Raleway', sans-serif;
+padding: 0;
+margin-bottom: 4em;
+}
+.list-type1 ol ol{
+margin: 0 0 0 2em;
+}
+
+.list-type1 a{
+position: relative;
+display: block;
+padding: .4em .4em .4em 2em;
+*padding: .4em;
+margin: .5em 0;
+background: #93C775;
+color: #000;
+text-decoration: none;
+-moz-border-radius: .3em;
+-webkit-border-radius: .3em;
+border-radius: 10em;
+transition: all .2s ease-in-out;
+}
+
+.list-type1 a:hover{
+background: #d6d4d4;
+text-decoration:none;
+transform: scale(1.1);
+}
+
+.list-type1 a:before{
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -1.3em;
+top: 50%;
+margin-top: -1.3em;
+background:#93C775;
+height: 2em;
+width: 2em;
+line-height: 2em;
+border: .3em solid #fff;
+text-align: center;
+font-weight: bold;
+-moz-border-radius: 2em;
+-webkit-border-radius: 2em;
+border-radius: 2em;
+color:#FFF;
+}
+</style>
+<style type="text/css">
+	/* Hover */
+
+.hover-button{
+position: relative;
+top: 0;
+border-radius: 4px;
+font-size: 18px;
+padding: 8px 28px;
+text-decoration: none;
+border: 0px solid;
+cursor: pointer;
+border-bottom-width: 10px;
+outline: none;
+-webkit-transition: 0.3s background;
+-moz-transition: 0.3s background;
+transition: 0.3s background;
+}
+
+.hover-button.teal{
+color: #fff;
+border-color: #237E7C;
+background-color: #08BBB7;
+}
+
+.hover-button.teal:hover{
+background: #237E7C;
+}
+/* Active */
+
+.active-button{
+position: relative;
+top: 0;
+border-radius: 4px;
+font-size: 18px;
+padding: 8px 28px;
+text-decoration: none;
+border: 0px solid;
+cursor: pointer;
+border-bottom-width: 10px;
+outline: none;
+-webkit-transition: 0.3s background;
+-moz-transition: 0.3s background;
+transition: 0.3s background;
+}
+
+.active-button:active{
+top: 3px;
+}
+
+.active-button.teal{
+color: #fff;
+border-color: #237E7C;
+background-color: #08BBB7;
+}
+
+.active-button.teal:hover{
+background: #0ACFCB;
+}
+.active-button.teal:active{
+background: #5A5A5A;
+border-bottom-width: 3px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<center>
+
+	<h1>Technova : : Online Registration Portal</h1>
+	</center>
+<div style="display:none;">
+	<div class="list-type1">
+		<center><h2>For Classes VI - IX</h2></center>
+<ol>
+<li><a>2nd Phase Form Fillup Start : 7th January, 2020 at 10:00 AM</a></li>
+<li><a>2nd Phase Form Fillup End : 8th January, 2020</a></li>
+<li><b><a>Students who have already applied, should not apply again. Otherwise they will be rejected.</a></b></li>
+</ol>
+
+</div>
+</div>
+<div class="box">
+<div class="active">
+	<center>
+	<a class="active-button teal" onclick="interclg()">Inter College Student</a>
+	<a class="active-button teal" onclick="intraclg()">Intra College Student</a><br><br>
+	<br><br><br>
+	
+	<br><br><br>
+	</center>
+</div>
+</div>
+<!--
+<script type="text/javascript">
+function dtchk() {
+var d = new Date();
+  var x = d.getTime();
+  
+  var n = new Date("2020-01-20 10:00:00");
+  var y = n.getTime();
+  
+  var m = new Date("2020-01-22 23:59:00");
+  var z = m.getTime();
+  
+if(+x >= +y && +x <= +z)
+	{
+	swal("Dhola High School","Enter Access Key Here:", {
+    content: {
+    element: "input",
+    attributes: {
+     placeholder: "Type access key",
+     type: "password",
+    },
+  },
+})
+  .then((value) => {
+
+  if (value != null) {
+    if (value == window.atob("YWRtczIwMjBAZGhz")){
+      window.open("student/index.html");
+  }
+  else{
+  swal("Dhola High School","You are not authorized!","error");
+  window.open("../404/index.html");
+  }
+  }
+});
+	//window.open("student/index.html");
+	}
+else{swal("Dhola High School","Admission Portal will be available from 20th January, 2020 at 10:00 AM till 22nd January, 2020 only for permitted candidates.","info");
+}
+}
+</script>
+-->
+<script type="text/javascript">
+function interclg() {
+var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='Inter_reg.html' frameborder='0' allowfullscreen></iframe>");
+}
+</script>
+<script type="text/javascript">
+function intraclg() {
+  swal("Technova - Annual Tech Fest 2020","Intra College Registration Portal will be available soon","info");
+  /*
+var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='Inter_reg.html' frameborder='0' allowfullscreen></iframe>");
+  */
+}
+</script>
+<!--
+<script type="text/javascript">
+function dtVII() {
+var d = new Date();
+  var y = d.getTime();
+  var n = new Date("2020-01-06 10:00:00");
+  var x = n.getTime();
+if(+x >= +y){swal("Dhola High School","Merit List will be available from 06th January, 2020 at 10:00 AM","info");}
+else{
+var myWindow = window.open("");
+  myWindow.document.write("<title>Dhola High School</title><iframe width='100%' height='100%' src='student/login/meritVII.html' frameborder='0' allowfullscreen></iframe>");
+}
+}
+</script>
+-->
+
+</body>
+
+</html>
