@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE HTML>
 <html>
-<title>Dhola High School :: Online Admission Portal</title>
+<title>TECHNOVA || Annual Tech Fest</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
 <link rel="icon" type="image/jpg" href="img/tr.png">
@@ -317,7 +317,7 @@ h2 {
 <!--
 <img src="img/dhola.jpg" height="60px" width="60px" />
 -->
-Inter College Registration Window
+Intra College Registration Window
 <!--
 <img src="img/dhola.jpg" height="60px" width="60px" />
 -->
@@ -333,9 +333,9 @@ Inter College Registration Window
 <ol>
 <li><a>Fillup the Registration form carefully. Mandatory Fields are marked with a 
   <img src="img/asterisk.png" alt="mandatory" height="15" width="15">.</a></li>
-<li><a>This Registration Window is for Inter College Students Only (i.e. Students from Different Colleges excluding Fakir Chand College). </a></li>
+<li><a>This Registration Window is for Intra College Students Only (i.e. Students from Fakir Chand College only). </a></li>
 <li><a>After Successful submission carefully note down the Application ID and on the next window, click on "Login" and take a screenshot of the page containing <b>QR Code</b> required for verification. You can get this code at again, by a successful login with Email ID (1st Participant's Email ID) and Application ID.</a></li>
-<li><a><b>Students applying for Inter College Technical Contests, should verify themselves at Event Venue on the Event Day (25th February, 2020 : Tuesday).</b></a></li>
+<li><a><b>Students applying for Intra College Technical Contests, should verify themselves at Event Venue on the Event Day (24th February, 2020 : Monday).</b></a></li>
 </ol>
 </div>
   <br>
@@ -390,10 +390,10 @@ Inter College Registration Window
     <option value="NA" disabled="disabled" selected>-- Select any One --</option>
     <option value="BSC">B.SC</option>
     <option value="MSC">M.SC</option>
-    <option value="BCA">BCA</option>
-    <option value="MCA">MCA</option>
-    <option value="B.Tech">B.Tech</option>
-    <option value="M.Tech">M.Tech</option>
+    <option value="BA">BA</option>
+    <option value="MA">MA</option>
+    <option value="BCOM">BCOM</option>
+    <option value="MCOM">MCOM</option>
     <option value="Others">Others</option>
     </select>
 	</label>
@@ -405,10 +405,10 @@ Inter College Registration Window
     <option value="NA" disabled="disabled" selected>-- Select any One --</option>
     <option value="BSC">B.SC</option>
     <option value="MSC">M.SC</option>
-    <option value="BCA">BCA</option>
-    <option value="MCA">MCA</option>
-    <option value="B.Tech">B.Tech</option>
-    <option value="M.Tech">M.Tech</option>
+    <option value="BA">BA</option>
+    <option value="MA">MA</option>
+    <option value="BCOM">BCOM</option>
+    <option value="MCOM">MCOM</option>
     <option value="Others">Others</option>
     </select>
   </label>
@@ -464,11 +464,11 @@ Inter College Registration Window
 
 <div class="section"><span>5</span>1st Participant's College Name*</div>
     <div class="inner-wrap">
-  <input type="text" name="fclg" id="fclg" required="true" placeholder="Enter College Name">
+  <input type="text" name="fclg" id="fclg" disabled="true" value="Fakir Chand College" placeholder="Enter College Name">
     </div>
 <div class="section"><span>6</span>2nd Participant's College Name</div>
     <div class="inner-wrap">
-  <input type="text" name="sclg" id="sclg" placeholder="Enter College Name">
+  <input type="text" name="sclg" id="sclg" disabled="true" value="Fakir Chand College" placeholder="Enter College Name">
     </div>
 <hr>
 
@@ -476,11 +476,11 @@ Inter College Registration Window
 
 <div class="section"><span>7</span>1st Participant's Department Name*</div>
     <div class="inner-wrap">
-  <input type="text" name="fdept" id="fdept" required="true" placeholder="Enter College Name">
+  <input type="text" name="fdept" id="fdept" required="true" placeholder="Enter Department Name">
     </div>
 <div class="section"><span>8</span>2nd Participant's Department Name</div>
     <div class="inner-wrap">
-  <input type="text" name="sdept" id="sdept" placeholder="Enter College Name">
+  <input type="text" name="sdept" id="sdept" placeholder="Enter Department Name">
     </div>
 <hr>
 
@@ -492,32 +492,23 @@ Inter College Registration Window
 
 <div class="section"><span>1</span>Group Participation (Select Events for your Group)*</div><br>
 <div class="section"><span>A</span>Event 1</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="fevent" id="fevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="Digikit-Arduino">Digikit (Expertise Arduino)</option>
-    <option value="Digikit-IC">Digikit (Mastering ICs)</option>
-    <option value="Webdesign">Draw the Web</option>
-      	</select>
-		</label>
-        </div>
+  <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
+    <b>Code-Arena : Coding Contest based on Programming Language</b>
+  <input type="checkbox" id="fevent" name="fevent" value="NA" onchange="fevt()">
+  <span class="checkmark"></span>
+  </label>
 
 <div class="section"><span>B</span>Event 2</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="sevent" id="sevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="Code-Arena">Code-Arena</option>
-    <option value="Data-Pirate">Data Pirate</option>
-        </select>
-    </label>
-        </div>
+  <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
+    <b>Digkit : Digital Electronics Contest based on ICs</b>
+  <input type="checkbox" id="sevent" name="sevent" value="NA" onchange="sevt()">
+  <span class="checkmark"></span>
+  </label>
 
 <div class="section"><span>C</span>Event 3</div>
   <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
-    <b>We want to participate in "Mindbend : Technical Quiz Contest"</b>
-  <input type="checkbox" id="mindbend" name="mindbend" value="NA" onchange="mnd()">
+    <b>Draw the Web : Website Design Contest based on HTML & CSS.</b>
+  <input type="checkbox" id="tevent" name="tevent" value="NA" onchange="tevt()">
   <span class="checkmark"></span>
   </label>
 
@@ -525,61 +516,18 @@ Inter College Registration Window
 
 <div class="section"><span>2</span>Individual Participation</div><br>
 <div class="section"><span>A</span>For Participant 1</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="tfevent" id="tfevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="Syntactic and Bug-Hunter">Syntactic & Bug-Hunter</option>
-    <option value="Syntactic">Syntactic</option>
-    <option value="Bug-Hunter">Bug-Hunter</option>
-    <option value="Battle of Words">Battle of Words</option>
-        </select>
-    </label>
-        </div>
+  <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
+    <b>I want to Join "Battle of Words : Debate Contest (Topic: 'Facebook is useful in our Daily Life')"</b>
+  <input type="checkbox" id="ffevent" name="ffevent" value="NA" onchange="ffevt()">
+  <span class="checkmark"></span>
+  </label>
 
 <div class="section"><span>B</span>For Participant 2</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="tsevent" id="tsevent" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="Syntactic and Bug-Hunter">Syntactic & Bug-Hunter</option>
-    <option value="Syntactic">Syntactic</option>
-    <option value="Bug-Hunter">Bug-Hunter</option>
-    <option value="Battle of Words">Battle of Words</option>
-        </select>
-    </label>
-        </div>
-<hr>
-
-
-<br>
-    <center><b style="color:black;font-family:'Times New Roman';font-size:35px">Preferred Food-service</b></center>
-    <br>
-<div class="section"><span>1</span>For Participant 1</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="ffood" id="ffood" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="VEG">VEG</option>
-    <option value="NON-VEG">NON-VEG</option>
-    <option value="TIFFIN">JUST A TIFFIN</option>
-    <option value="NO NEED">DO NOT NEED</option>
-        </select>
-    </label>
-        </div>
-
-<div class="section"><span>2</span>For Participant 2</div>
-        <div class="inner-wrap">
-        <label>
-        <select name="sfood" id="sfood" style="padding: 10px; width: 100%; font-size: 17px; font-family: Raleway; border: 1px solid #aaaaaa;">
-    <option value="NA" selected disabled>-- Select any One --</option>
-    <option value="VEG">VEG</option>
-    <option value="NON-VEG">NON-VEG</option>
-    <option value="TIFFIN">JUST A TIFFIN</option>
-    <option value="NO NEED">DO NOT NEED</option>
-        </select>
-    </label>
-        </div>
+        <label class="container" style="font-family:'Times New Roman', Times, serif; font-size:large; font-style:oblique; color:white">
+    <b>I want to Join "Battle of Words : Debate Contest (Topic: 'Facebook is useful in our Daily Life')"</b>
+  <input type="checkbox" id="fsevent" name="fsevent" value="NA" onchange="fsevt()">
+  <span class="checkmark"></span>
+  </label>
 <hr>
   
        <br>
