@@ -3,8 +3,8 @@
 	<title>
 		Technova || Annual Tech Fest
 	</title>
-<link rel="icon" href="ss/login/images/logo.png" sizes="32x32" />
-	<link rel="icon" href="ss/login/images/logo.png" sizes="192x192" />
+<link rel="icon" href="img/tr.png" sizes="32x32" />
+	<link rel="icon" href="img/tr.png" sizes="192x192" />
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css">
 .list-type1{
@@ -137,7 +137,7 @@ border-bottom-width: 3px;
 <body>
 
 	<center>
-
+		<div style="min-height: 80px;"></div>
 	<h1>Technova : : Online Registration Portal</h1>
 	</center>
 <div style="display:none;">
@@ -151,11 +151,32 @@ border-bottom-width: 3px;
 
 </div>
 </div>
+<div style="min-height: 50px;"></div>
 <div class="box">
 <div class="active">
 	<center>
-	<a class="active-button teal" onclick="interclg()">Inter College Student</a>
-	<a class="active-button teal" onclick="intraclg()">Intra College Student</a><br><br>
+		<a class="active-button teal" onclick="login()">Login (If already registered)</a>
+		<div style="min-height: 30px;"></div>
+
+		<p>Or <br>Choose to Register for</p>
+	<a class="active-button teal" onclick="interclg()">Inter College Student (Offline / Venue Events)</a>
+	
+	<div style="min-height: 50px;"></div>
+
+	<a class="active-button teal" onclick="intraclg()">Intra College Student (Offline / Venue Events)</a>
+
+	<div style="min-height: 50px;"></div>
+
+	<a class="active-button teal" onclick="seminar()">Seminar, Workshop, Techshow & Technomania</a>
+
+	<div style="min-height: 50px;"></div>
+	
+	<a class="active-button teal" onclick="online()">Online Events</a><br>
+
+	<div style="min-height: 30px;"></div>
+
+	
+
 	<br><br><br>
 	
 	<br><br><br>
@@ -216,6 +237,25 @@ function intraclg() {
   myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='Intra_reg.html' frameborder='0' allowfullscreen></iframe>");
 }
 </script>
+<script type="text/javascript">
+function seminar() {
+  var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='seminar.html' frameborder='0' allowfullscreen></iframe>");
+}
+</script>
+<script type="text/javascript">
+function online() {
+  var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='online.html' frameborder='0' allowfullscreen></iframe>");
+}
+</script>
+<script type="text/javascript">
+function login() {
+  var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='#' frameborder='0' allowfullscreen></iframe>");
+}
+</script>
+
 <!--
 <script type="text/javascript">
 function dtVII() {
