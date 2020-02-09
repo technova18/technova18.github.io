@@ -3,18 +3,15 @@
 	<title>
 		Technova || Annual Tech Fest
 	</title>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72523311-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-72523311-2');
-</script>
 <link rel="icon" href="img/tr.png" sizes="32x32" />
 	<link rel="icon" href="img/tr.png" sizes="192x192" />
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<style type="text/css">
+  body{
+    background: radial-gradient(80% 40%, #6dcfbd, #76a4b8);
+  }
+</style>
 <style type="text/css">
 .list-type1{
 width:400px;
@@ -162,7 +159,7 @@ border-bottom-width: 3px;
 </div>
 <div style="min-height: 50px;"></div>
 <div class="box">
-<div class="active">
+<div class="active" style="font-weight: bold;">
 	<center>
 		<a class="active-button teal" onclick="login()">Login (If already registered)</a>
 		<div style="min-height: 30px;"></div>
@@ -182,6 +179,12 @@ border-bottom-width: 3px;
 	
 	<a class="active-button teal" onclick="online()">Online Events</a><br>
 
+  <div style="min-height: 50px;"></div>
+
+  <p>To Get More Details About Gaming Zone Click Below</p><br>
+  
+  <a class="active-button teal" onclick="pubg()">Gaming Zone</a><br>
+
 	<div style="min-height: 30px;"></div>
 
 	
@@ -192,48 +195,7 @@ border-bottom-width: 3px;
 	</center>
 </div>
 </div>
-<!--
-<script type="text/javascript">
-function dtchk() {
-var d = new Date();
-  var x = d.getTime();
-  
-  var n = new Date("2020-01-20 10:00:00");
-  var y = n.getTime();
-  
-  var m = new Date("2020-01-22 23:59:00");
-  var z = m.getTime();
-  
-if(+x >= +y && +x <= +z)
-	{
-	swal("Dhola High School","Enter Access Key Here:", {
-    content: {
-    element: "input",
-    attributes: {
-     placeholder: "Type access key",
-     type: "password",
-    },
-  },
-})
-  .then((value) => {
 
-  if (value != null) {
-    if (value == window.atob("YWRtczIwMjBAZGhz")){
-      window.open("student/index.html");
-  }
-  else{
-  swal("Dhola High School","You are not authorized!","error");
-  window.open("../404/index.html");
-  }
-  }
-});
-	//window.open("student/index.html");
-	}
-else{swal("Dhola High School","Admission Portal will be available from 20th January, 2020 at 10:00 AM till 22nd January, 2020 only for permitted candidates.","info");
-}
-}
-</script>
--->
 <script type="text/javascript">
 function interclg() {
 var myWindow = window.open("");
@@ -300,28 +262,16 @@ function login() {
 
   }
 });
-
-
-
-  
 }
 </script>
-
-<!--
 <script type="text/javascript">
-function dtVII() {
-var d = new Date();
-  var y = d.getTime();
-  var n = new Date("2020-01-06 10:00:00");
-  var x = n.getTime();
-if(+x >= +y){swal("Dhola High School","Merit List will be available from 06th January, 2020 at 10:00 AM","info");}
-else{
-var myWindow = window.open("");
-  myWindow.document.write("<title>Dhola High School</title><iframe width='100%' height='100%' src='student/login/meritVII.html' frameborder='0' allowfullscreen></iframe>");
-}
+function pubg() {
+  Swal.fire(
+  'Technova || Annual Tech Fest 2020',
+  'PUBG Registration will be available soon',
+  'info');
 }
 </script>
--->
 
 </body>
 
