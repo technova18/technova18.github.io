@@ -4,7 +4,7 @@ function appidset(){
 	var date = new Date();
 	var timestamp = date.getTime();
 	appid = timestamp;
-  document.getElementById("idset").innerHTML = "Your Application ID for Inter College Technical Event Registration is: " + appid;
+  document.getElementById("idset").innerHTML = "Your Application ID for Workshop, Seminar, Techshow & Technomania is: " + appid;
   document.getElementById("appidsetval").value = appid;
 }
 var config = {
@@ -28,30 +28,19 @@ function submitForm(e){
 
   // Get values
 var	fname = getInputVal('fname');
-var	sname = getInputVal('sname');
 var	fmail = getInputVal('fmail');
-var	smail = getInputVal('smail');
 var	fphone = getInputVal('fphone');
-var	sphone = getInputVal('sphone');
 var	fstrm = getInputVal('fstrm');
-var	sstrm = getInputVal('sstrm');
 var	fyr = getInputVal('fyr');
-var	syr = getInputVal('syr');
 var	fclg = getInputVal('fclg');
-var	sclg = getInputVal('sclg');
 var	fdept = getInputVal('fdept');
-var	sdept = getInputVal('sdept');
 var	fevent = getInputVal('fevent');
 var	sevent = getInputVal('sevent');
-var	tfevent = getInputVal('tfevent');
-var	tsevent = getInputVal('tsevent');
-var	mindbend = getInputVal('mindbend');
-var	ffood = getInputVal('ffood');
-var	sfood = getInputVal('sfood');
+var	tevent = getInputVal('tevent');
+var hevent = getInputVal('hevent');
 var appid = getInputVal('appidsetval');
-var prtype = 'Inter';
  // Save message
-  saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tfevent,tsevent,mindbend,ffood,sfood,appid,prtype);
+  saveMessage(fname,fmail,fphone,fstrm,fyr,fclg,fdept,fevent,sevent,tevent,hevent,appid);
 
 
   document.getElementById("contactForm").style.display = 'none';
@@ -66,35 +55,21 @@ function getInputVal(id){
 }
 
 // Save message to firebase   
-function saveMessage(fname,sname,fmail,smail,fphone,sphone,fstrm,sstrm,fyr,syr,fclg,sclg,fdept,sdept,fevent,sevent,tfevent,tsevent,mindbend,ffood,sfood,appid,prtype){
-  /*
-  var newMessageRef = messagesRef.push();
-  MessageRef.set({
-  */
-  firebase.database().ref('users/' + appid).set({
+function saveMessage(fname,fmail,fphone,fstrm,fyr,fclg,fdept,fevent,sevent,tevent,hevent,appid){
+
+  firebase.database().ref('show/' + appid).set({
 fname:fname,
-sname:sname,
 fmail:fmail,
-smail:smail,
 fphone:fphone,
-sphone:sphone,
 fstrm:fstrm,
-sstrm:sstrm,
 fyr:fyr,
-syr:syr,
 fclg:fclg,
-sclg:sclg,
 fdept:fdept,
-sdept:sdept,
 fevent:fevent,
 sevent:sevent,
-tfevent:tfevent,
-tsevent:tsevent,
-mindbend:mindbend,
-ffood:ffood,
-sfood:sfood,
-appid:appid,
-prtype:prtype
+tevent:tevent,
+hevent:hevent,
+appid:appid
   });
 }
 
@@ -104,8 +79,7 @@ function chkn() {
 		if (window.sessionStorage) 
 				{
 					sessionStorage.setItem("appid", appid);
-					var myWindow = window.open("");
-          myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/login.html' frameborder='0' allowfullscreen></iframe>");
+					window.open("login/login.html");
 					
 				}
 }
@@ -118,67 +92,91 @@ function chkn() {
  			document.getElementById("fphone").focus();
  		}
   }
- 	function contactb(){
- 		var clngt2=document.getElementById("sphone").value.length;
- 		if(clngt2!=10)
- 		{
- 			swal("Oops..","Contact no. must contain 10 digits. Please re-type.","error");
- 			document.getElementById("sphone").value ="";
- 			document.getElementById("sphone").focus();
- 		}
- 		
- 	}
 
-function mnd()
+function fevt()
  {
-  if(document.getElementById("mindbend").checked===true)
+  if(document.getElementById("fevent").checked===true)
   {
-    document.getElementById("mindbend").value="Mindbend";
+    document.getElementById("fevent").value="Workshop";
   }
   else
   {
-    document.getElementById("mindbend").value="NA";
+    document.getElementById("fevent").value="NA";
   }
  }
+
+ function sevt()
+ {
+  if(document.getElementById("sevent").checked===true)
+  {
+    document.getElementById("sevent").value="Seminar";
+  }
+  else
+  {
+    document.getElementById("sevent").value="NA";
+  }
+ }
+
+ function tevt()
+ {
+  if(document.getElementById("tevent").checked===true)
+  {
+    document.getElementById("tevent").value="Techshow";
+  }
+  else
+  {
+    document.getElementById("tevent").value="NA";
+  }
+ }
+
+ function hevt()
+ {
+  if(document.getElementById("hevent").checked===true)
+  {
+    document.getElementById("hevent").value="TechnoMania";
+  }
+  else
+  {
+    document.getElementById("hevent").value="NA";
+  }
+ }
+
+
 
  	function toggleCheckbox(element)
  {	
  if(document.getElementById("fname").value==="" || document.getElementById("fname").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Full Name","error");
+   swal("Oops..","Enter Your Full Name","error");
    document.getElementById("fname").focus();}
  	else if(document.getElementById("fmail").value==="" || document.getElementById("fmail").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Email ID","error");
+   swal("Oops..","Enter Your Email ID","error");
    document.getElementById("fmail").focus();}
    	else if(document.getElementById("fphone").value==="" || document.getElementById("fphone").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Phone Number","error");
+   swal("Oops..","Enter Your Phone Number","error");
    document.getElementById("fphone").focus();}
    	else if(document.getElementById("fstrm").value==="" || document.getElementById("fstrm").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Choose 1st Participant's Stream of Study","error");
+   swal("Oops..","Choose Your Stream of Study","error");
    document.getElementById("fstrm").focus();}
 	else if(document.getElementById("fyr").value==="" || document.getElementById("fyr").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Choose 1st Participant's Year / Semester","error");
+   swal("Oops..","Choose Your Year / Semester","error");
    document.getElementById("fyr").focus();}
 	else if(document.getElementById("fclg").value==="" || document.getElementById("fclg").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's College Name","error");
+   swal("Oops..","Enter Your College Name","error");
    document.getElementById("fclg").focus();}
 	else if(document.getElementById("fdept").value==="" || document.getElementById("fdept").value==="NA"){
    element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Department name","error");
+   swal("Oops..","Enter Your Department name","error");
    document.getElementById("fdept").focus();}
-	 else if(document.getElementById("ffood").value==="" || document.getElementById("ffood").value==="NA"){
-   element.checked = !element.checked;
-   swal("Oops..","Enter 1st Participant's Food Service","error");
-   document.getElementById("ffood").focus();}
    	   	
    	else{
    element.checked = element.checked;
    document.getElementById("submitbtn").disabled = !element.checked;
-   swal("TECHNOVA || Annual Tech Fest","Check all details carefully and be sure that you have participated at least one event (group / individual) and be sure that you have provided all possible details before Submit.","info");
+   swal("TECHNOVA || Annual Tech Fest","Check all details carefully and be sure that you have participated at least one event (Workshop / Seminar / Techshow / TechnoMania) and be sure that you have provided all possible details before Submit.","info");
    }
  }

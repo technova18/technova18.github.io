@@ -4,7 +4,7 @@ function appidset(){
 	var date = new Date();
 	var timestamp = date.getTime();
 	appid = timestamp;
-  document.getElementById("idset").innerHTML = "Your Application ID is: " + appid;
+  document.getElementById("idset").innerHTML = "Your Application ID for Intra College Technical Event Registration is: " + appid;
   document.getElementById("appidsetval").value = appid;
 }
 var config = {
