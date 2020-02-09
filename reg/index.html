@@ -6,6 +6,7 @@
 <link rel="icon" href="img/tr.png" sizes="32x32" />
 	<link rel="icon" href="img/tr.png" sizes="192x192" />
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <style type="text/css">
 .list-type1{
 width:400px;
@@ -251,8 +252,50 @@ function online() {
 </script>
 <script type="text/javascript">
 function login() {
-  var myWindow = window.open("");
-  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='#' frameborder='0' allowfullscreen></iframe>");
+
+	Swal.fire({
+  title: 'Select Login Type',
+  input: 'select',
+  inputOptions: {
+    'users': 'Offline Events (Inter College & Intra College)',
+    'show': 'Workshop, Seminar, Techshow, TechnoMania',
+    'online': 'Online Events'
+  },
+  inputPlaceholder: 'Select any One',
+  showCancelButton: true,
+  inputValidator: function (value) {
+    return new Promise(function (resolve, reject) {
+      if (value !== '') {
+        resolve();
+      } else {
+        resolve('You need to select a Login Type');
+      }
+    });
+  }
+}).then(function (result) {
+  if (result.value) {
+  	if(result.value == 'users'){
+    var myWindow = window.open("");
+  	myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/inter.html' frameborder='0' allowfullscreen></iframe>");
+  	}
+  	else if(result.value == 'show'){
+    var myWindow = window.open("");
+  	myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/show.html' frameborder='0' allowfullscreen></iframe>");
+  	}
+  	else if(result.value == 'online'){
+    var myWindow = window.open("");
+  	myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/online.html' frameborder='0' allowfullscreen></iframe>");
+  	}
+  	else{
+    swal("Technova || Annual Tech Fest 2020","Choose any one Option for Login","info");
+  	}
+
+  }
+});
+
+
+
+  
 }
 </script>
 
