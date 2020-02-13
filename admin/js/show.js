@@ -15,7 +15,7 @@ function getParams(){
             //ccode = unescape(params["ccode"]);
             
 	    cnt = 0;
-            $("#clsdtls").html("Details of Students Registered for <b>Onliune Events </b><br>");
+            $("#clsdtls").html("Details of Students Registered for <b>Offline Show </b><br>");
 
 var config = {
     apiKey: "AIzaSyAsDccief9XqSmm1HLOY3lysECG5SMHgXM",
