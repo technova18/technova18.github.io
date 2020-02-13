@@ -45,6 +45,8 @@ var approve = snap.child("approve").val();
 if(appid==uid)
 {
 flag=1;
+$('#nappid').html("<h1> SQUAD ID: " + appid + "</h1>");
+
 $('#nfname').html("<b>" + fname + "</b>");
 
 
