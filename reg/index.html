@@ -220,6 +220,14 @@ function online() {
   myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='online.html' frameborder='0' allowfullscreen></iframe>");
 }
 </script>
+
+<script type="text/javascript">
+function pubg() {
+  var myWindow = window.open("");
+  myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='pubg.html' frameborder='0' allowfullscreen></iframe>");
+}
+</script>
+
 <script type="text/javascript">
 function login() {
 
@@ -229,7 +237,8 @@ function login() {
   inputOptions: {
     'users': 'Offline Events (Inter College & Intra College)',
     'show': 'Workshop, Seminar, Techshow, TechnoMania',
-    'online': 'Online Events'
+    'online': 'Online Events',
+    'pubg': 'Gaming Zone - PUBG'
   },
   inputPlaceholder: 'Select any One',
   showCancelButton: true,
@@ -256,20 +265,16 @@ function login() {
     var myWindow = window.open("");
   	myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/online.html' frameborder='0' allowfullscreen></iframe>");
   	}
+    else if(result.value == 'pubg'){
+    var myWindow = window.open("");
+    myWindow.document.write("<title>Technova || Annual Tech Fest</title><iframe width='100%' height='100%' src='login/pubg.html' frameborder='0' allowfullscreen></iframe>");
+    }
   	else{
     swal("Technova || Annual Tech Fest 2020","Choose any one Option for Login","info");
   	}
 
   }
 });
-}
-</script>
-<script type="text/javascript">
-function pubg() {
-  Swal.fire(
-  'Technova || Annual Tech Fest 2020',
-  'Gaming Zone Registration will be available soon',
-  'info');
 }
 </script>
 
