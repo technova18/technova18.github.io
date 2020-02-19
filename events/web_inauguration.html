@@ -27,6 +27,7 @@ color="#111" />
 <link rel="canonical" href="https://codepen.io/milabear/pen/nBjqk" />
 
 <link rel='stylesheet prefetch' href='reset200802.css'>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <style class="stylesheet">
 @import url(https://fonts.googleapis.com/css?family=Audiowide);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
@@ -601,6 +602,11 @@ $(document).ready(function(){
 function lnch() {
 	document.getElementById("navButton").style.display="none";
 	document.getElementById("intro").style.display="block";
+  Swal.fire(
+  'Welcome!',
+  'Online Contest Portal has opened!',
+  'success'
+)
 }
 
 //gallery stuff
